@@ -1,11 +1,10 @@
-import { getRequestContext } from "@cloudflare/next-on-pages";
 import { PrismaD1 } from "@prisma/adapter-d1";
 import { PrismaClient } from "@prisma/client";
 
 export const runtime = "edge";
 
 const prismaClientSingleton = () => {
-  const myDB = getRequestContext().env.DB;
+  const myDB = process.env.DB as any;
   const adapter = new PrismaD1(myDB);
   return new PrismaClient({ adapter });
 };
