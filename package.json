@@ -34,7 +34,7 @@
     "eslint-plugin-next-on-pages": "^1.13.5",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "vercel": "^37.6.2",
     "wrangler": "^3.80.1"
   }
