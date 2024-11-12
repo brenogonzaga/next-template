@@ -13,29 +13,29 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
-    "@auth/d1-adapter": "^1.6.0",
-    "@auth/prisma-adapter": "^2.6.0",
-    "@prisma/adapter-d1": "^5.21.1",
-    "@prisma/client": "^5.20.0",
-    "next": "^15.0.2",
+    "@auth/d1-adapter": "^1.7.3",
+    "@auth/prisma-adapter": "^2.7.3",
+    "@prisma/adapter-d1": "^5.22.0",
+    "@prisma/client": "^5.22.0",
+    "next": "^15.0.3",
     "next-auth": "^5.0.0-beta.19",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
-    "@cloudflare/workers-types": "^4.20241022.0",
-    "@types/node": "^22.7.5",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18",
+    "@cloudflare/workers-types": "^4.20241106.0",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
-    "eslint-config-next": "^14.2.14",
+    "eslint-config-next": "^15.0.3",
     "eslint-plugin-next-on-pages": "^1.13.5",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.49",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
-    "vercel": "^37.6.2",
-    "wrangler": "^3.80.1"
+    "vercel": "^37.14.0",
+    "wrangler": "^3.86.1"
   }
 }
