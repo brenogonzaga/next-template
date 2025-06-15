@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const db = getDb();
-  const allUsers = await db.users.findMany();
+  const allUsers = await db.user.findMany();
   return (
     <div className={styles.page}>
       <ul>
