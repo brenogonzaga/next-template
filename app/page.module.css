@@ -1,101 +1,364 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  padding: 2rem;
   font-family: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
+    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
   }
 }
 
 .main {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: 2rem;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+/* Header */
+.header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.subtitle {
+  font-size: 1.125rem;
+  color: #6c757d;
+  margin: 0.5rem 0 0;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+@media (prefers-color-scheme: dark) {
+  .subtitle {
+    color: #adb5bd;
+  }
 }
 
-.ctas {
+/* Auth Card */
+.authCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.authCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .authCard {
+    background: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .authCard:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.authContent {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid #667eea;
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  color: white;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.avatarIcon {
+  width: 36px;
+  height: 36px;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.userDetails {
+  flex: 1;
 }
 
-.footer {
-  grid-row-start: 3;
+.welcomeText {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+@media (prefers-color-scheme: dark) {
+  .welcomeText {
+    color: #adb5bd;
+  }
+}
+
+.userName {
+  margin: 0.25rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+@media (prefers-color-scheme: dark) {
+  .userName {
+    color: #f8f9fa;
+  }
+}
+
+.userEmail {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+@media (prefers-color-scheme: dark) {
+  .userEmail {
+    color: #adb5bd;
+  }
+}
+
+.notAuthContent {
+  text-align: center;
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lockIcon {
+  width: 48px;
+  height: 48px;
+  color: #6c757d;
+}
+
+@media (prefers-color-scheme: dark) {
+  .lockIcon {
+    color: #adb5bd;
+  }
+}
+
+.notAuthText {
+  margin: 0;
+  font-size: 1rem;
+  color: #495057;
+}
+
+@media (prefers-color-scheme: dark) {
+  .notAuthText {
+    color: #ced4da;
+  }
+}
+
+/* Buttons */
+.button,
+.buttonPrimary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button {
+  background: #6c757d;
+  color: white;
+}
+
+.button:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.buttonPrimary {
+  background: #212529;
+  color: white;
+}
+
+.buttonPrimary:hover {
+  background: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 37, 41, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .button {
+    background: #495057;
+  }
+
+  .button:hover {
+    background: #6c757d;
+  }
+
+  .buttonPrimary {
+    background: #f8f9fa;
+    color: #212529;
+  }
+
+  .buttonPrimary:hover {
+    background: #ffffff;
+  }
+}
+
+.githubIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Users Section */
+.usersSection {
+  margin-top: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  color: #212529;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionTitle {
+    color: #f8f9fa;
+  }
+}
+
+.usersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.userCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+
+.userCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  .userCard {
+    background: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .userCard:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.userCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.userCardName {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+@media (prefers-color-scheme: dark) {
+  .userCardName {
+    color: #f8f9fa;
+  }
+}
+
+.userCardEmail {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+@media (prefers-color-scheme: dark) {
+  .userCardEmail {
+    color: #adb5bd;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #6c757d;
+  font-size: 1rem;
+  grid-column: 1 / -1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .emptyState {
+    color: #adb5bd;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .authCard {
+    padding: 1.5rem;
+  }
+
+  .usersList {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer a {

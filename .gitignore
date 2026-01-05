@@ -45,3 +45,8 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+
+# local cloudflare workers
+.wrangler/
+.open-next/

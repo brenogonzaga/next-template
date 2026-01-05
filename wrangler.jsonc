@@ -11,8 +11,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "db",
-      "database_id": "<BINDING_ID>"
+      "database_name": "next-template",
+      "database_id": "f5188e4a-da45-45e4-95e9-01b09fdbc2e0"
     }
   ]
 }
